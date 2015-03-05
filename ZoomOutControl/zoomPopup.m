@@ -22,6 +22,8 @@
     
 	UIView *mainView;
     
+    UITapGestureRecognizer *tgrClose;
+    
     
 	CGRect mainViewStartRect;
 	
@@ -77,7 +79,9 @@
 		_backGroundAlpha = 0.5;
 		_shadowRadius = 10.0;
         _showCloseButton = YES;
+        _closeOnTap = NO;
         _blurRadius = 0;
+        tgrClose = Nil;
 	}
     
 	return self;
@@ -139,7 +143,13 @@
         } else {
             _showCloseButton = NO; // No zoomPopupClose@2x.png or zoomPopupClose.png => no close button
         }
-	}
+    }
+    if (_closeOnTap){
+        //Support closing the popup by tap on the view
+        tgrClose = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(closePopup)];
+        [viewToDisplay addGestureRecognizer:tgrClose];
+        viewToDisplay.userInteractionEnabled = TRUE;
+    }
     
     
 	UIImage *imgSrc = [self imageWithView:mainView crop:mainViewStartRect];
@@ -198,6 +208,7 @@
 
 - (void)closePopup {
 	if (_showCloseButton) [closeButton removeFromSuperview];
+    if (tgrClose) [tgrClose.view removeGestureRecognizer:tgrClose];
 	[popupView removeFromSuperview];
 	[UIView animateWithDuration:0.3 delay:0 options:UIViewAnimationOptionCurveEaseInOut animations: ^(void) {
 	    destImageView.alpha = 0.0;
@@ -232,6 +243,9 @@
 }
 +(void) showCloseButton: (BOOL) showCloseButton{
     [zoomPopup sharedInstance].showCloseButton = showCloseButton;
+}
++(void) closeOnTap: (BOOL) closeOnTap{
+    [zoomPopup sharedInstance].closeOnTap = closeOnTap;
 }
 
 

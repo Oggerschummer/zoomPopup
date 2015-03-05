@@ -16,6 +16,7 @@
 @property (nonatomic) CGFloat shadowRadius;
 @property  (nonatomic) CGFloat backGroundAlpha;
 @property  (nonatomic) BOOL showCloseButton;
+@property  (nonatomic) BOOL closeOnTap;
 @property  (nonatomic) NSInteger blurRadius;
 
 
@@ -31,6 +32,7 @@
 +(void) setShadowRadius: ( CGFloat) shadowRadius;
 +(void) setBackgroundAlpha: (CGFloat) backGroundAlpha;
 +(void) showCloseButton: (BOOL) showCloseButton;
++(void) closeOnTap: (BOOL) closeOnTap;
 
 
 -(id) initWithMainview: (UIView*) mainView andStartRect: (CGRect) rect;
