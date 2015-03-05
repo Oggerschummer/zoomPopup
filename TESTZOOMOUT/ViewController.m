@@ -45,6 +45,8 @@
     UIImageView *image = [[UIImageView alloc] initWithImage:[UIImage imageNamed:@"myAn"]];
     
     zoomPopup *popup = [[zoomPopup alloc] initWithMainview:self.view andStartRect:_segmentedControl.frame];
+    [popup setShowCloseButton:NO]; //Disable close button
+    [popup setCloseOnTap:YES]; //Allow to close popup by single tap on the presented view
     [popup setBlurRadius:10];
     [popup showPopup:image];
     
