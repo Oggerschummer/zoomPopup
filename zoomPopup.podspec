@@ -1,7 +1,7 @@
 Pod::Spec.new do |s|
 
   s.name         = "zoomPopup"
-  s.version      = "0.0.1"
+  s.version      = "0.0.2"
   s.summary      = "Show view in popover with zoom effect"
 
   s.description  = <<-DESC
@@ -13,7 +13,7 @@ Pod::Spec.new do |s|
                    * Finally, don't worry about the indent, CocoaPods strips it!
                    DESC
 
-  s.homepage     = https://github.com/Tintenklecks/zoomPopup"
+  s.homepage     = "https://github.com/Tintenklecks/zoomPopup"
   
   s.license      = "Unknown"
   s.author       = { "Tintenklecks"}
