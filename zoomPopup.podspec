@@ -16,7 +16,7 @@ Pod::Spec.new do |s|
   s.homepage     = "https://github.com/Tintenklecks/zoomPopup"
   
   s.license      = "Unknown"
-  s.author       = { "Tintenklecks"}
+  s.author       = { "Tintenklecks" =>"unknown@unknown.yy"}
   s.platform     = :ios
   s.source       = { :git => "https://github.com/Oggerschummer/zoomPopup.git"}
   s.source_files  = "ZoomOutControl"
